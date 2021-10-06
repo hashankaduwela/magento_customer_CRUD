@@ -1,0 +1,38 @@
+<?php
+$collection = $this->getTestCollection();
+?>
+
+<a href="<?php echo $block->getBaseUrl().'module/customer/add'; ?>">Add New Book</a>
+<table class="data table" id="test-data-table">
+    <caption class="table-caption"> Vendor Module Data</caption>
+    <thead>
+    <tr>
+        <th scope="col" class="col title">Title</th>
+        <th scope="col" class="col author">Author</th>
+        <th scope="col" class="col content">Content</th>
+        <th scope="col" class="col created_at">Created At</th>
+        <th scope="col" class="col actions">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($collection as $key => $data): ?>
+        <tr>
+            <td data-th="Title" class="col title"><?php echo $data->getTitle(); ?></td>
+            <td data-th="Author" class="col author"><?php echo $data->getAuthor(); ?></td>
+            <td data-th="Content" class="col content"><?php echo $data->getContent(); ?></td>
+            <td data-th="Date" class="col created_at"><?php echo $data->getCreatedAt(); ?></td>
+            <td data-th="Actions" class="col actions">
+                <a href="<?php echo $block->getBaseUrl().'module/customer/view/id/'.$data->getModuleId(); ?>" class="action view">
+                    <span>View</span>
+                </a>
+                <a href="<?php echo $block->getBaseUrl().'module/customer/edit/id/'.$data->getModuleId(); ?>" class="action edit">
+                    <span>Edit</span>
+                </a>
+                <a href="<?php echo $block->getBaseUrl().'module/customer/delete/id/'.$data->getModuleId(); ?>" class="action delete">
+                    <span>Delete</span>
+                </a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
