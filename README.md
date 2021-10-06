@@ -1,2 +1,2 @@
 # magento_customer_CRUD
-CRUD operations in Customer account page with new tab.
+CRUD operations in Customer account Section with new tab.
